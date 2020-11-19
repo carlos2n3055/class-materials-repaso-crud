@@ -1,0 +1,60 @@
+<div class="container">
+
+    <div class="row justify-content-center">
+
+        <div class="col-md-7">
+
+            <h2>COASTER EDIT</h2>
+
+            <form action="/coasters/edit?id={{coasterInfo._id}}" method="POST">
+
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="name" value="{{coasterInfo.name}}">
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" class="form-control" name="description" value="{{coasterInfo.description}}">
+                </div>
+
+                <div class="form-group">
+                    <label>Length</label>
+                    <input type="text" class="form-control" name="length" value="{{coasterInfo.length}}">
+                </div>
+
+                <div class=" form-group">
+                    <label>Inversions</label>
+                    <input type="text" class="form-control" name="inversions" value="{{coasterInfo.inversions}}">
+                </div>
+
+                <div class="form-group">
+                    <label>Active</label>
+                    <select name="active" class="form-control" id="active-list">
+                        <option>Seleccionar</option>
+                        <option value="false">False</option>
+                        <option value="true">True</option>
+                    </select>
+                    <p><small>Actualmente: {{coasterInfo.active}}</small></p>
+                </div>
+
+                <div class=" form-group">
+                    <label>Park</label>
+                    <select name="park" class="form-control" id="park-list">
+                        <option>Seleccionar</option>
+                        {{#each theParks}}
+                        <option value="{{this._id}}">{{this.name}}</option>
+                        {{/each}}
+                    </select>
+                    <p><small>Actualmente: {{coasterInfo.park.name}}</small></p>
+                </div>
+
+                <button type="submit" class="btn btn-dark">Save</button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
